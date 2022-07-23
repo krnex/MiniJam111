@@ -7,9 +7,9 @@
 #include "Keyboard.h"
 
 // TODO:
-// Player Spawn done with level load
-// Art
 // Menu
+// Art
+// Sound
 
 
 int main()
@@ -17,15 +17,17 @@ int main()
     static int WINDOW_WIDTH = 800;
     static int WINDOW_HEIGHT = 800;
 
-    Map test(WINDOW_WIDTH, WINDOW_HEIGHT);
-    Player test_player(sf::Vector2i{ 0,0 }, &test);
-    Player test_player2(sf::Vector2i{ 9,9 }, &test);
-    std::vector<Player*> test_players;
-    test_players.push_back(&test_player);
-    test_players.push_back(&test_player2);
+    ///Map test(WINDOW_WIDTH, WINDOW_HEIGHT);
+    //std::vector<Player*> test_players;
+    //LevelManager lm;
+
+    //lm.loadLevel(1, &test, &test_players);
+
+    Map gameMaps(WINDOW_HEIGHT, WINDOW_HEIGHT);
+    std::vector<Player*> setOfPlayers;
     LevelManager lm;
 
-    lm.loadLevel(1, &test);
+    lm.loadLevel(0, &gameMaps, &setOfPlayers);
 
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Bingo Bongo you're a pongo");
 
@@ -40,18 +42,18 @@ int main()
                 window.close();
         }
 
-        if (test.checkWinCondition())
+        if (gameMaps.checkWinCondition())
         {
             std::cout << "WE HAVE A WINNER" << std::endl;
-            lm.loadLevel(0, &test, &test_players);
+            lm.loadLevel(1, &gameMaps, &setOfPlayers);
         }
 
         window.clear();
-        test.draw(window);
-        for (Player* p : test_players)
+        gameMaps.draw(window);
+        for (Player* player : setOfPlayers)
         {
-            p->update();
-            p->draw(window);
+            player->update();
+            player->draw(window);
         }
         window.display();
     }
