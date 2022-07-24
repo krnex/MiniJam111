@@ -149,6 +149,7 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

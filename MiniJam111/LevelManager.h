@@ -10,6 +10,7 @@ struct level
 	std::vector<std::vector<unsigned char>> map;
 	std::vector<sf::Vector2i> playerPosiitons;
 	std::vector<sf::Color> colorSet;
+	std::vector<bool> playerInverse;
 };
 
 class LevelManager

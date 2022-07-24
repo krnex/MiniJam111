@@ -1,9 +1,10 @@
 #include"Player.h"
 
-Player::Player(sf::Vector2i location, Map* current)
+Player::Player(sf::Vector2i location, Map* current, bool inverse)
 {	
 	this->currentLevel = current;
 	this->location = location;
+	this->inverse = inverse;
 }
 
 sf::Vector2i Player::getCurrentTile()
@@ -50,6 +51,11 @@ void Player::update()
 	else if (currentKey == sf::Keyboard::D)
 	{
 		move_vector = sf::Vector2i{ 0, 1 };
+	}
+
+	if (inverse)
+	{
+		move_vector *= -1;
 	}
 
 

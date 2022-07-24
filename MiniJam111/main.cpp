@@ -5,6 +5,8 @@
 #include "Player.h"
 #include "LevelManager.h"
 #include "Keyboard.h"
+#include "Menu.h"
+#include "Menu.h"
 
 // TODO:
 // Menu
@@ -17,15 +19,11 @@ int main()
     static int WINDOW_WIDTH = 800;
     static int WINDOW_HEIGHT = 800;
 
-    ///Map test(WINDOW_WIDTH, WINDOW_HEIGHT);
-    //std::vector<Player*> test_players;
-    //LevelManager lm;
-
-    //lm.loadLevel(1, &test, &test_players);
-
+    // Initilizing.
     Map gameMaps(WINDOW_HEIGHT, WINDOW_HEIGHT);
     std::vector<Player*> setOfPlayers;
     LevelManager lm;
+    Menu menu;
 
     lm.loadLevel(0, &gameMaps, &setOfPlayers);
 
@@ -34,6 +32,11 @@ int main()
     while (window.isOpen())
     {
         Keyboard::GetInstance().update();
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+        {
+            menu.setPause(true);
+        }
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -49,11 +52,20 @@ int main()
         }
 
         window.clear();
-        gameMaps.draw(window);
-        for (Player* player : setOfPlayers)
+
+        if (menu.isPaused())
         {
-            player->update();
-            player->draw(window);
+            menu.checkPressed(window);
+            menu.draw(window);
+        }
+        else
+        {
+            gameMaps.draw(window);
+            for (Player* player : setOfPlayers)
+            {
+                player->update();
+                player->draw(window);
+            }
         }
         window.display();
     }

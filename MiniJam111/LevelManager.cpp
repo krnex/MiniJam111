@@ -16,14 +16,16 @@ LevelManager::LevelManager()
 		{ 0, 0, 0, 0,15,15,15,15,15,15},
 		{ 0, 0, 0, 0,15,15,15,15,15,15},
 		{15,15,15, 0,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15}
+		{15,15,15, 0,15,15,15,15,15,15},
+		{15,15,15, 0, 0, 0, 0, 0, 2, 2},
+		{15,15,15,15,15,15, 0, 0, 0, 0},
+		{15,15,15,15,15,15, 0, 0, 0, 0},
+		{15,15,15,15,15,15, 0, 0, 0, 0}
 	};
 	levelOne.playerPosiitons.push_back(sf::Vector2i{ 0,0 });
 	levelOne.playerPosiitons.push_back(sf::Vector2i{ 9,9 });
+	levelOne.playerInverse.push_back(false);
+	levelOne.playerInverse.push_back(true);
 	levelOne.colorSet = std::vector<sf::Color>{ sf::Color::Red, sf::Color::Green, sf::Color::Blue };
 
 	/*
@@ -74,7 +76,7 @@ void LevelManager::loadLevel(int levelNumber, Map* currentMap, std::vector<Playe
 	// Adding new players.
 	for (int i = 0; i < this->levels[levelNumber].playerPosiitons.size(); i++)
 	{
-		Player* player = new Player(this->levels[levelNumber].playerPosiitons[i], currentMap);
+		Player* player = new Player(this->levels[levelNumber].playerPosiitons[i], currentMap, this->levels[levelNumber].playerInverse[i]);
 		players->push_back(player);
 	}
 	// Adding the levels and colors.
