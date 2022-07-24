@@ -23,7 +23,9 @@ public:
 	LevelManager();
 
 	bool isInit() { return this->init; }
-	void loadLevel(int levelNumber, Map* currentMap);
 	void loadLevel(int levelNumber, Map* currentMap, std::vector<Player*>* players);
+
+	int currentLevel = -1;
+	int totalLevels = 0;
 };
 

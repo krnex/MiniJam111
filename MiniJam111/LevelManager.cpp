@@ -4,6 +4,13 @@ LevelManager::LevelManager()
 {
 
 	/*
+	  0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	 15,15,15,15,15,15,15,15,15,15
+	
+	
+	*/
+
+	/*
 	/////////////////////////////////////////////////////////////////
 	//////////			LEVEL ONE        				/////////////
 	/////////////////////////////////////////////////////////////////
@@ -11,22 +18,20 @@ LevelManager::LevelManager()
 	level levelOne;
 	levelOne.map =
 	{
-		{ 1, 0, 2, 2,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{15,15,15, 0,15,15,15,15,15,15},
-		{15,15,15, 0,15,15,15,15,15,15},
-		{15,15,15, 0, 0, 0, 0, 0, 2, 2},
-		{15,15,15,15,15,15, 0, 0, 0, 0},
-		{15,15,15,15,15,15, 0, 0, 0, 0},
-		{15,15,15,15,15,15, 0, 0, 0, 0}
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15, 2,15,15,15,15,15,15,15},
+		{15,15, 1,15, 1, 1, 1, 1,15,15},
+		{15,15, 1,15, 1,15,15, 1,15,15},
+		{15,15, 1,15,15,15,15, 1,15,15},
+		{15,15, 1, 1, 1, 1, 1, 1,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
 	};
-	levelOne.playerPosiitons.push_back(sf::Vector2i{ 0,0 });
-	levelOne.playerPosiitons.push_back(sf::Vector2i{ 9,9 });
+	levelOne.playerPosiitons.push_back(sf::Vector2i{ 2,2 });
 	levelOne.playerInverse.push_back(false);
-	levelOne.playerInverse.push_back(true);
-	levelOne.colorSet = std::vector<sf::Color>{ sf::Color::Red, sf::Color::Green, sf::Color::Blue };
+	levelOne.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Red };
 
 	/*
 	/////////////////////////////////////////////////////////////////
@@ -37,33 +42,87 @@ LevelManager::LevelManager()
 	level levelTwo;
 	levelTwo.map =
 	{
-		{ 1, 0, 2, 2,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{ 0, 0, 0, 0,15,15,15,15,15,15},
-		{15,15,15, 0,15,15,15,15,15,15},
-		{15,15,15, 0,15,15,15,15,15,15},
-		{15,15,15, 0, 0, 0, 0, 0, 2, 2},
-		{15,15,15,15,15,15, 0, 0, 0, 0},
-		{15,15,15,15,15,15, 0, 0, 0, 0},
-		{15,15,15,15,15,15, 0, 0, 0, 0}
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15, 2,15, 1,15,15, 1, 1, 1,15},
+		{15, 1,15, 1,15,15, 1,15, 1,15},
+		{15, 1,15, 1,15,15, 1,15, 1,15},
+		{15, 1, 1, 1,15,15, 1,15, 2,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
 	};
-	levelTwo.playerPosiitons.push_back(sf::Vector2i{ 0,0 });
-	//levelTwo.playerPosiitons.push_back(sf::Vector2i{ 1,1 });
-	levelTwo.colorSet = std::vector<sf::Color>{ sf::Color::Red, sf::Color::Green, sf::Color::Blue };
+	levelTwo.playerPosiitons.push_back(sf::Vector2i{ 3,1 });
+	levelTwo.playerPosiitons.push_back(sf::Vector2i{ 6,8 });
+	levelTwo.playerInverse.push_back(false);
+	levelTwo.playerInverse.push_back(true);
+	levelTwo.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Red };
+
+	/*
+	/////////////////////////////////////////////////////////////////
+	//////////			LEVEL THREE        				/////////////
+	/////////////////////////////////////////////////////////////////
+	*/
+
+	level levelThree;
+	levelThree.map =
+	{
+		{15,15,15,15,15,15,15,15,15,15},
+		{15, 1, 2, 1,15,15, 1, 1, 1,15},
+		{15,15, 1,15,15,15,15, 1,15,15},
+		{15, 1, 1, 1,15,15, 1, 1, 1,15},
+		{15,15, 1,15,15,15,15, 1,15,15},
+		{15, 1, 1, 1,15,15, 1, 1, 1,15},
+		{15,15, 1,15,15,15,15, 1,15,15},
+		{15, 1, 1, 1,15,15, 1, 1, 1,15},
+		{15,15, 1,15,15,15,15, 2,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
+	};
+	levelThree.playerPosiitons.push_back(sf::Vector2i{ 1,2 });
+	levelThree.playerPosiitons.push_back(sf::Vector2i{ 8,7 });
+	levelThree.playerInverse.push_back(false);
+	levelThree.playerInverse.push_back(true);
+	levelThree.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Red };
+
+	/*
+	/////////////////////////////////////////////////////////////////
+	//////////			LEVEL FOUR        				/////////////
+	/////////////////////////////////////////////////////////////////
+	*/
+
+	level levelFour;
+	levelFour.map =
+	{
+		{15,15,15,15,15,15,15,15,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1,15,15,15,15,15,15, 1,15},
+		{15, 1, 1, 1, 1, 1, 1, 1, 1,15},
+		{15,15,15,15,15,15,15,15,15,15}
+	};
+	levelFour.playerPosiitons.push_back(sf::Vector2i{ 1,2 });
+	levelFour.playerPosiitons.push_back(sf::Vector2i{ 8,7 });
+	levelFour.playerInverse.push_back(false);
+	levelFour.playerInverse.push_back(true);
+	levelFour.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Red };
 
 	this->levels.push_back(levelOne);
 	this->levels.push_back(levelTwo);
-}
+	this->levels.push_back(levelThree);
+	this->levels.push_back(levelFour);
 
-void LevelManager::loadLevel(int levelNumber, Map* currentMap)
-{
-	currentMap->loadMap(this->levels[levelNumber].map);
-	currentMap->setColors(this->levels[levelNumber].colorSet);
+	this->totalLevels = this->levels.size();
 }
 
 void LevelManager::loadLevel(int levelNumber, Map* currentMap, std::vector<Player*>* players)
 {
+
+	this->currentLevel = levelNumber;
 	currentMap->loadMap(this->levels[levelNumber].map);
 
 	// Cleaning up the players.

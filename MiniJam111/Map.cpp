@@ -93,14 +93,13 @@ void Map::draw(sf::RenderWindow& window)
 bool Map::checkWinCondition()
 {
 	bool wincon = true;
-	int last_value = this->map[0][0];
 
 	for (std::vector<unsigned char> x : this->map)
 	{
 		for (unsigned char y : x)
 		{
 			if (int(y) < this->tile_colors.size()-1 &&
-				last_value != int(y))
+				int(y) != 0)
 			{
 				wincon = false;
 				break;
