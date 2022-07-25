@@ -16,7 +16,7 @@
 
 sf::Color getBlueGreenGradient(int* seed)
 {
-    (*seed) = (*seed) + (clock()%10==0);
+    (*seed) = (*seed) + (clock()%20==0);
     int g = *seed % 512;
     int b = (*seed * 2) % 512;
 
