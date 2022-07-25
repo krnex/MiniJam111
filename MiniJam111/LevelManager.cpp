@@ -18,7 +18,7 @@ LevelManager::LevelManager()
 	level levelOne;
 	levelOne.map =
 	{
-		{15,15,15,15,15,15,15,15,15,15},
+		{0,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15},
 		{15,15, 2,15,15,15,15,15,15,15},
 		{15,15, 1,15, 1, 1, 1, 1,15,15},
@@ -42,13 +42,13 @@ LevelManager::LevelManager()
 	level levelTwo;
 	levelTwo.map =
 	{
+		{ 0,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15},
-		{15,15,15,15,15,15,15,15,15,15},
-		{15, 2,15, 1,15,15, 1, 1, 1,15},
-		{15, 1,15, 1,15,15, 1,15, 1,15},
-		{15, 1,15, 1,15,15, 1,15, 1,15},
-		{15, 1, 1, 1,15,15, 1,15, 2,15},
+		{15, 2, 1, 1,15,15, 1, 1, 1,15},
+		{15, 1, 1, 1,15,15, 1, 1, 1,15},
+		{15, 1, 1, 1,15,15, 1, 1, 1,15},
+		{15, 1, 1, 1,15,15, 1, 1, 2,15},
 		{15,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15}
@@ -68,7 +68,7 @@ LevelManager::LevelManager()
 	level levelThree;
 	levelThree.map =
 	{
-		{15,15,15,15,15,15,15,15,15,15},
+		{ 0,15,15,15,15,15,15,15,15,15},
 		{15, 1, 2, 1,15,15, 1, 1, 1,15},
 		{15,15, 1,15,15,15,15, 1,15,15},
 		{15, 1, 1, 1,15,15, 1, 1, 1,15},
@@ -94,27 +94,109 @@ LevelManager::LevelManager()
 	level levelFour;
 	levelFour.map =
 	{
+		{0 ,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15},
-		{15, 1, 1, 1, 1, 1, 1, 1, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1,15,15,15,15,15,15, 1,15},
-		{15, 1, 1, 1, 1, 1, 1, 1, 1,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{ 3, 0, 0, 0, 1, 1, 0, 0, 0, 3},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
 		{15,15,15,15,15,15,15,15,15,15}
 	};
-	levelFour.playerPosiitons.push_back(sf::Vector2i{ 1,2 });
-	levelFour.playerPosiitons.push_back(sf::Vector2i{ 8,7 });
+	levelFour.playerPosiitons.push_back(sf::Vector2i{ 4,0 });
+	levelFour.playerPosiitons.push_back(sf::Vector2i{ 4,9 });
 	levelFour.playerInverse.push_back(false);
 	levelFour.playerInverse.push_back(true);
-	levelFour.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Red };
+	levelFour.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Blue, sf::Color::Red };
+
+	/*
+	/////////////////////////////////////////////////////////////////
+	//////////			LEVEL FOUR        				/////////////
+	/////////////////////////////////////////////////////////////////
+	*/
+
+	level levelFive;
+	levelFive.map =
+	{
+		{0 ,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15, 1,15,15},
+		{15,15,15,15,15,15,15, 1,15,15},
+		{15,15, 2, 1, 3, 1,15, 1,15,15},
+		{15,15, 1, 3, 3, 1,15, 1,15,15},
+		{15,15, 1, 3, 3, 1,15, 1,15,15},
+		{15,15, 1, 3, 1, 1,15, 1,15,15},
+		{15,15,15,15,15,15,15, 1,15,15},
+		{15,15,15,15,15,15,15, 2,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
+	};
+	levelFive.playerPosiitons.push_back(sf::Vector2i{ 3,2 });
+	levelFive.playerPosiitons.push_back(sf::Vector2i{ 8,7 });
+	levelFive.playerInverse.push_back(false);
+	levelFive.playerInverse.push_back(true);
+	levelFive.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Blue, sf::Color::Red };
+
+	/*
+	/////////////////////////////////////////////////////////////////
+	//////////			LEVEL SIX        				/////////////
+	/////////////////////////////////////////////////////////////////
+	*/
+
+	level levelSix;
+	levelSix.map =
+	{
+		{0 ,15,15,15,15,15,15,15,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1,15, 1,15, 1,15, 1,15,15},
+		{15, 1, 1, 1, 2, 1, 1, 1,15,15},
+		{15, 1,15, 1,15, 1,15, 1,15,15},
+		{15, 1, 1, 1, 2, 1, 1, 1,15,15},
+		{15, 1,15, 1,15, 1,15, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
+	};
+	levelSix.playerPosiitons.push_back(sf::Vector2i{ 1,1 });
+	levelSix.playerPosiitons.push_back(sf::Vector2i{ 7,7 });
+	levelSix.playerInverse.push_back(false);
+	levelSix.playerInverse.push_back(true);
+	levelSix.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Blue, sf::Color::Red };
+
+	/*
+	/////////////////////////////////////////////////////////////////
+	//////////			LEVEL SEVEN        				/////////////
+	/////////////////////////////////////////////////////////////////
+	*/
+
+	level levelSeven;
+	levelSeven.map =
+	{
+		{0 ,15,15,15,15,15,15,15,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 2, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15, 1, 1, 1, 1, 1, 1, 1,15,15},
+		{15,15,15,15,15,15,15,15,15,15},
+		{15,15,15,15,15,15,15,15,15,15}
+	};
+	levelSeven.playerPosiitons.push_back(sf::Vector2i{ 1,1 });
+	levelSeven.playerPosiitons.push_back(sf::Vector2i{ 7,7 });
+	levelSeven.playerInverse.push_back(false);
+	levelSeven.playerInverse.push_back(true);
+	levelSeven.colorSet = std::vector<sf::Color>{ sf::Color::Cyan, sf::Color::Green, sf::Color::Blue, sf::Color::Yellow, sf::Color::Red };
+
 
 	this->levels.push_back(levelOne);
 	this->levels.push_back(levelTwo);
 	this->levels.push_back(levelThree);
 	this->levels.push_back(levelFour);
+	this->levels.push_back(levelFive);
+	this->levels.push_back(levelSix);
+	this->levels.push_back(levelSeven);
 
 	this->totalLevels = this->levels.size();
 }

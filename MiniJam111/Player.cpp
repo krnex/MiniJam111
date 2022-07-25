@@ -11,14 +11,16 @@ Player::Player(sf::Vector2i location, Map* current, bool inverse)
 	{
 		this->color = sf::Color::White;
 		this->outline = sf::Color::Black;
+		this->buffer.loadFromFile("./audio/move.wav");
 	}
 	else
 	{
 		this->color = sf::Color::Black;
 		this->outline = sf::Color::White;
+		this->buffer.loadFromFile("./audio/move.wav");
 	}
 
-	this->buffer.loadFromFile("./audio/move.wmp");
+	this->soundPlayer.setVolume(50);
 }
 
 sf::Vector2i Player::getCurrentTile()
@@ -29,22 +31,27 @@ sf::Vector2i Player::getCurrentTile()
 void Player::draw(sf::RenderWindow& window)
 {
 	sf::CircleShape circle;
-	circle.setRadius(30);
+	circle.setRadius(30+this->enlarge);
 	circle.setFillColor(this->color);
 	circle.setOutlineColor(this->outline);
 	circle.setOutlineThickness(1);
-	circle.setPosition(currentLevel->getLocationFromTile(this->getCurrentTile()) + sf::Vector2f{5,5});
+	circle.setPosition(currentLevel->getLocationFromTile(this->getCurrentTile()) + sf::Vector2f{5-(this->enlarge/2),5 - (this->enlarge / 2) });
 
 	window.draw(circle);
 }
 
 void Player::update()
 {
+
+	if (this->enlarge > 0)
+	{
+		this->enlarge -= this->shrinkRate;
+	}
+
 	if (clock() >= waitTime + timeToWait)
 	{
 		waitingForMove = false;
 	}
-
 
 	move_vector = sf::Vector2i{ 0, 0 };
 
@@ -77,9 +84,11 @@ void Player::update()
 		this->currentLevel->isValidMove(this->location + move_vector) && 
 		!waitingForMove)
 	{
-		sf::Sound sound;
-		sound.setBuffer(this->buffer);
-		sound.play();
+		this->soundPlayer.setBuffer(this->buffer);
+		this->soundPlayer.play();
+
+		this->enlarge = this->enlargeMax;
+
 		this->location += move_vector;
 		currentLevel->updateTile(this->location);
 		waitingForMove = true;

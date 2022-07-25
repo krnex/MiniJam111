@@ -22,6 +22,11 @@ private:
 	bool inverse = false;
 
 	sf::SoundBuffer buffer;
+	sf::Sound soundPlayer;
+
+	float enlarge = 0.0f;
+	float shrinkRate = 0.1f;
+	float enlargeMax = 5.0f;
 
 public:
 	Player(sf::Vector2i location, Map* currentLevel, bool inverse);

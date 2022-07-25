@@ -29,8 +29,6 @@ sf::Color getBlueGreenGradient(int* seed)
         b = 255 - (b % 256);
     }
 
-    std::cout << g << " " << b << std::endl;
-
     return sf::Color{ 0,sf::Uint8(g),sf::Uint8(b) };
 }
 
@@ -56,6 +54,14 @@ int main()
     backgroundTexture.loadFromFile("./images/background.png");
     sf::Sprite background(backgroundTexture);
 
+    sf::Music music;
+    music.openFromFile("./audio/summerForest.wav");
+    music.setVolume(25);
+    music.setLoop(true);
+    music.play();
+
+    bool canSkip = false;
+
     while (window.isOpen())
     {
 
@@ -75,6 +81,7 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
+            canSkip = true;
             menu.setWindow("PauseMenu");
             menu.setOpen(true);
         }
@@ -98,7 +105,6 @@ int main()
             {
                 if (menu.backToMainMenu == false)
                 {
-                    std::cout << "Load Level" << std::endl;
                     lm.loadLevel(menu.nextLevel, &gameMaps, &setOfPlayers);
                     menu.setOpen(false);
                 }
@@ -117,9 +123,9 @@ int main()
                 player->update();
                 player->draw(window);
             }
-            if (gameMaps.checkWinCondition())
+            if (gameMaps.checkWinCondition() || (sf::Keyboard::isKeyPressed(sf::Keyboard::V) && canSkip))
             {
-                std::cout << "WE HAVE A WINNER" << std::endl;
+                canSkip = false;
                 if (lm.currentLevel + 1 < lm.totalLevels)
                 {
                     lm.loadLevel(++lm.currentLevel, &gameMaps, &setOfPlayers);
